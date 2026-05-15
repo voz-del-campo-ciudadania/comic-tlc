@@ -1,281 +1,331 @@
-/* ========================= */
-/* PORTADA */
-/* ========================= */
+/* =========================================
+   ESTILO GENERAL
+========================================= */
 
-.portada{
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Georgia, serif;
 
-    width:100%;
-    height:100vh;
-
-    background-image:url("img/portada.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    position:relative;
+    /* 🔥 NUEVO FONDO TEMÁTICO */
+    background: linear-gradient(
+        180deg,
+        #d8c3a5 0%,
+        #c6ac8f 40%,
+        #8d6e63 100%
+    );
 }
 
-/* CAPA OSCURA */
+/* =========================================
+   PORTADA
+========================================= */
 
-.overlay{
+.portada {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
 
-    width:100%;
-    height:100%;
+    background-image: url("img/portada.jpg");
+    background-size: cover;
+    background-position: center;
 
-    background:rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:20px;
+    z-index: 100;
 }
 
-/* TITULO */
+.overlay {
 
-.titulo-portada{
+    background: rgba(0, 0, 0, 0.06);
 
-    font-size:90px;
+    padding: 1px;
 
-    color:white;
+    border-radius: 20px;
 
-    text-shadow:4px 4px 10px black;
+    text-align: center;
 
-    margin-bottom:20px;
+    color: white;
 
-    animation:aparecer 2s ease;
+    backdrop-filter: blur(4px);
 }
 
-/* SUBTITULO */
+.titulo-portada {
 
-.subtitulo{
+    font-size: 60px;
 
-    color:white;
+    margin-bottom: 1px;
 
-    font-size:28px;
-
-    max-width:900px;
-
-    margin-bottom:40px;
-
-    line-height:1.5;
-
-    animation:aparecer 3s ease;
+    text-shadow: 0 0 20px rgba(73, 73, 73, 0);
 }
 
-/* BOTON */
+.subtitulo {
 
-#iniciarHistoria{
+    font-size: 22px;
 
-    padding:20px 50px;
+    margin-bottom: 30px;
+}
+/* =========================================
+   BOTÓN PRINCIPAL
+========================================= */
 
-    font-size:24px;
+.btn-inicio-grande {
 
-    border:none;
+    position: fixed;
+    bottom: -400px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    border-radius:15px;
+    padding: 10px 50px;
 
-    background:#2d572c;
+    font-size: 12px;
 
-    color:white;
+    font-weight: bold;
 
-    cursor:pointer;
+    letter-spacing: 2px;
 
-    transition:0.3s;
+    color: white;
 
-    animation:aparecer 4s ease;
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+
+    border: none;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(255, 200, 0, 0.8),
+        0 0 40px rgba(255, 120, 0, 0.6);
+
+    animation: pulse 1.5s infinite;
+
+    transition: all 0.3s ease;
 }
 
-#iniciarHistoria:hover{
+.btn-inicio-grande:hover {
 
-    transform:scale(1.1);
-
-    background:#3f7a3d;
+    transform: translateX(-50%) scale(1.12);
 }
 
-/* ANIMACION */
+/* ANIMACIÓN */
+@keyframes pulse {
 
-@keyframes aparecer{
-
-    from{
-
-        opacity:0;
-        transform:translateY(40px);
+    0% {
+        box-shadow:
+            0 0 15px rgba(255,200,0,0.7),
+            0 0 30px rgba(255,100,0,0.5);
     }
 
-    to{
-
-        opacity:1;
-        transform:translateY(0);
+    50% {
+        box-shadow:
+            0 0 35px rgba(255,200,0,1),
+            0 0 60px rgba(255,100,0,0.9);
     }
 
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .titulo-portada{
-
-        font-size:50px;
+    100% {
+        box-shadow:
+            0 0 15px rgba(255,200,0,0.7),
+            0 0 30px rgba(255,100,0,0.5);
     }
-
-    .subtitulo{
-
-        font-size:20px;
-    }
-
-}
-body{
-    margin:0;
-    padding:20px;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f0e6;
 }
 
-h1{
-    text-align:center;
-    color:#2d572c;
-    margin-bottom:30px;
-    font-size:45px;
+/* =========================================
+   ESTADOS
+========================================= */
+
+.portada-activa .pages-wrapper,
+.portada-activa .botones,
+.portada-activa .volver-container {
+    display: none;
 }
 
-/* PAGINAS */
-
-.pagina{
-    display:none;
+.historia-activa .portada {
+    display: none;
 }
 
-.pagina.active{
-    display:block;
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.pages-wrapper {
+
+    width: 100%;
+
+    height: 85vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 }
 
-/* CONTENEDOR */
+/* =========================================
+   PAGINAS
+========================================= */
 
-.comic-container{
+.pagina {
 
-    display:grid;
+    position: absolute;
 
-    grid-template-columns:1fr 1fr;
+    width: 90%;
 
-    gap:30px;
+    max-width: 1400px;
 
-    max-width:1400px;
+    opacity: 0;
 
-    margin:auto;
+    transform: scale(0.95);
+
+    transition: all 0.6s ease;
+
+    pointer-events: none;
 }
 
-/* PANEL */
+.pagina.active {
 
-.panel{
+    opacity: 1;
 
-    background:white;
+    transform: scale(1);
 
-    border:5px solid black;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-
-    transition:0.3s;
+    pointer-events: auto;
 }
 
-.panel:hover{
+/* =========================================
+   COMIC
+========================================= */
 
-    transform:scale(1.02);
+.comic-container {
+
+    display: flex;
+
+    gap: 20px;
+
+    justify-content: center;
 }
 
-/* IMAGEN */
+/* =========================================
+   ESCENAS
+========================================= */
 
-.panel img{
+.panel {
 
-    width:100%;
+    flex: 1;
 
-    height:450px;
+    height: 72vh;
 
-    object-fit:cover;
+    border: 4px solid #111;
 
-    object-position:center;
+    border-radius: 18px;
 
-    display:block;
+    overflow: hidden;
+
+    background: #f8f1e7;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition: transform 0.3s ease;
 }
 
-/* DIALOGO */
+.panel:hover {
 
-.dialogo{
-
-    padding:20px;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    min-height:120px;
-
-    display:flex;
-
-    align-items:center;
+    transform: scale(1.02);
 }
 
-/* BOTONES */
+.panel img {
 
-.botones{
+    width: 100%;
 
-    margin-top:40px;
+    height: 78%;
 
-    display:flex;
+    object-fit: contain;
 
-    justify-content:center;
-
-    gap:20px;
+    background: #000;
 }
 
-button{
 
-    padding:15px 30px;
+/* =========================================
+   DIALOGOS
+========================================= */
 
-    border:none;
+.dialogo {
 
-    border-radius:10px;
+    height: 22%;
 
-    background:#2d572c;
+    display: flex;
 
-    color:white;
+    align-items: center;
 
-    font-size:18px;
+    justify-content: center;
 
-    cursor:pointer;
+    padding: 15px;
 
-    transition:0.3s;
+    text-align: center;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #111;
+
+    background: #fffaf2;
 }
 
-button:hover{
+/* =========================================
+   BOTONES (AJUSTADOS)
+========================================= */
 
-    background:#1d3d1d;
+/* 🔥 AQUÍ ESTÁ EL AJUSTE IMPORTANTE */
+.botones,
+.volver-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 1cm; /* 👈 DISTANCIA EXACTA */
+
+    margin-top: 1px;
+
+    margin-bottom: 1px;
 }
 
-/* RESPONSIVE */
+/* BOTONES GENERALES */
 
-@media(max-width:900px){
+.btn-cine {
 
-    .comic-container{
+    background: linear-gradient(45deg, #1b1b1b, #444);
 
-        grid-template-columns:1fr;
-    }
+    color: white;
 
+    border: 1px solid #888;
+
+    padding: 12px 24px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.4);
+}
+
+.btn-cine:hover {
+
+    transform: scale(1.08);
+
+    background: linear-gradient(45deg, #333, #111);
 }

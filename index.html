@@ -4,106 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historieta TLC</title>
+    <title>La Voz del Campo</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="portada-activa">
+
+    <!-- AUDIO -->
+    <audio id="audioCampo" loop>
+        <source src="audio/campo.mp3" type="audio/mp3">
+    </audio>
 
     <!-- PORTADA -->
+    <div class="portada">
 
-<div class="pagina active portada">
+        <div class="overlay">
 
-    <div class="overlay">
-
-        <h1 class="titulo-portada">
-            LA VOZ DEL CAMPO
-        </h1>
-
-        <p class="subtitulo">
-
-            Debate campesino frente al nuevo TLC y el futuro del campo colombiano
-
-        </p>
-
-        <button id="iniciarHistoria">
-
-            INICIAR HISTORIA
-
-        </button>
-
-    </div>
-
-</div>
-
-    <h1>La Voz del Campo</h1>
-
-    <!-- PAGINA 1 -->
-    <div class="pagina active">
-
-        <div class="comic-container">
-
-            <div class="panel">
-                <img src="img/Escena1.jpg">
-                <div class="dialogo">
-                    El gobierno propone un nuevo TLC con Estados Unidos.
-                </div>
-            </div>
-
-            <div class="panel">
-                <img src="img/Escena2.jpg">
-                <div class="dialogo">
-                    Las organizaciones campesinas se reúnen para debatir.
-                </div>
-            </div>
+            <!-- 🔥 BOTÓN GRANDE Y RESALTADO -->
+            <button id="iniciarHistoria" class="btn-inicio-grande">
+                INICIAR HISTORIA
+            </button>
 
         </div>
-
     </div>
 
-    <!-- PAGINA 2 -->
-    <div class="pagina">
+    <!-- BOTÓN VOLVER -->
+    <div class="volver-container">
+        <button id="volverInicio" class="btn-cine">🏠 Volver al inicio</button>
+    </div>
 
-        <div class="comic-container">
+    <!-- PÁGINAS -->
+    <div class="pages-wrapper">
 
-            <div class="panel">
-                <img src="img/Escena3.jpg">
-                <div class="dialogo">
-                    Debemos adaptarnos y competir para sobrevivir.
+        <div class="pagina active">
+            <div class="comic-container">
+
+                <div class="panel">
+                    <img src="img/Escena1.jpg">
+                    <div class="dialogo"><h2>El gobierno propone un nuevo TLC con EE.UU.</h2></div>
                 </div>
-            </div>
 
-            <div class="panel">
-                <img src="img/Escena4.jpg">
-                <div class="dialogo">
-                    Pero perderemos nuestras semillas y cultura.
+                <div class="panel">
+                    <img src="img/Escena2.jpg">
+                    <div class="dialogo"><h2>Organizaciones campesinas se reúnen para debatir.</h2></div>
                 </div>
-            </div>
 
+            </div>
         </div>
 
-    </div>
+        <div class="pagina">
+            <div class="comic-container">
 
-    <!-- PAGINA 3 -->
-    <div class="pagina">
-
-        <div class="comic-container">
-
-            <div class="panel">
-                <img src="img/Escena5.jpg">
-                <div class="dialogo">
-                    ¿Es más importante la economía o la identidad campesina?
+                <div class="panel">
+                    <img src="img/Escena3.jpg">
+                    <div class="dialogo"><h2>Algunos quieren adaptarse y competir.</h2></div>
                 </div>
-            </div>
 
-            <div class="panel">
-                <img src="img/Escena6.jpg">
-                <div class="dialogo">
-                    La decisión final será exigir protección para el campesinado.
+                <div class="panel">
+                    <img src="img/Escena4.jpg">
+                    <div class="dialogo"><h2>Otros defienden la cultura campesina.</h2></div>
                 </div>
-            </div>
 
+            </div>
+        </div>
+
+        <div class="pagina">
+            <div class="comic-container">
+
+                <div class="panel">
+                    <img src="img/Escena5.jpg">
+                    <div class="dialogo"><h2>Economía vs identidad campesina.</h2></div>
+                </div>
+
+                <div class="panel">
+                    <img src="img/Escena6.jpg">
+                    <div class="dialogo"><h2>Se exige protección al campesinado.</h2></div>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -111,19 +90,13 @@
     <!-- BOTONES -->
     <div class="botones">
 
-        <button id="anterior">
-            ⬅ Anterior
-        </button>
-
-        <button id="siguiente">
-            Siguiente ➡
-        </button>
+        <button id="anterior" class="btn-cine">⬅ Anterior</button>
+        <button id="siguiente" class="btn-cine">Siguiente ➡</button>
 
     </div>
 
     <script src="script.js"></script>
 
 </body>
-
 
 </html>
