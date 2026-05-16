@@ -1,543 +1,595 @@
-/* =========================================
-   ESTILO GENERAL
-========================================= */
+<!DOCTYPE html>
+<html lang="es">
+<head>
 
-*{
-    box-sizing: border-box;
-}
+    <meta charset="UTF-8">
 
-html,
-body {
+    <!-- RESPONSIVE PARA CELULARES -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    margin: 0;
-    padding: 0;
+    <title>Comic Responsive</title>
 
-    width: 100%;
-    height: 100%;
+    <style>
 
-    overflow-x: hidden;
+    /* =========================================
+       RESET GENERAL
+    ========================================= */
 
-    font-family: Georgia, serif;
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    /* 🔥 NUEVO FONDO TEMÁTICO */
-    background: linear-gradient(
-        180deg,
-        #d8c3a5 0%,
-        #c6ac8f 40%,
-        #8d6e63 100%
-    );
-}
+    html,
+    body{
 
-/* =========================================
-   PORTADA
-========================================= */
+        width: 100%;
+        min-height: 100vh;
 
-.portada {
+        overflow-x: hidden;
 
-    position: fixed;
+        font-family: Georgia, serif;
 
-    width: 100%;
-    height: 100vh;
+        background: linear-gradient(
+            180deg,
+            #d8c3a5 0%,
+            #c6ac8f 40%,
+            #8d6e63 100%
+        );
+    }
 
-    background-image: url("img/portada.jpg");
+    /* =========================================
+       PORTADA RESPONSIVE
+    ========================================= */
 
-    background-size: cover;
-    background-position: center;
+    .portada{
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        position: fixed;
 
-    padding: 20px;
+        top: 0;
+        left: 0;
 
-    z-index: 100;
-}
+        width: 100%;
+        height: 100vh;
 
-.overlay {
+        background-image: url("img/portada.jpg");
 
-    background: rgba(0, 0, 0, 0.06);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
 
-    padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    border-radius: 20px;
+        padding: 20px;
 
-    text-align: center;
+        overflow: hidden;
 
-    color: white;
+        z-index: 100;
+    }
 
-    backdrop-filter: blur(4px);
+    /* CAPA OSCURA */
 
-    width: 100%;
-    max-width: 900px;
-}
+    .overlay{
 
-.titulo-portada {
+        width: 100%;
+        max-width: 900px;
 
-    font-size: clamp(32px, 6vw, 60px);
+        padding: 25px;
 
-    margin-bottom: 10px;
+        text-align: center;
 
-    text-shadow: 0 0 20px rgba(73, 73, 73, 0);
-}
+        border-radius: 20px;
 
-.subtitulo {
+        color: white;
 
-    font-size: clamp(16px, 3vw, 22px);
+        background: rgba(0,0,0,0.15);
 
-    margin-bottom: 30px;
+        backdrop-filter: blur(4px);
+    }
 
-    line-height: 1.4;
-}
+    /* =========================================
+       TITULOS
+    ========================================= */
 
-/* =========================================
-   BOTÓN PRINCIPAL
-========================================= */
+    .titulo-portada{
 
-.btn-inicio-grande {
+        font-size: clamp(32px, 6vw, 70px);
 
-    position: fixed;
+        margin-bottom: 15px;
 
-    bottom: 30px;
+        text-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
 
-    left: 50%;
+    .subtitulo{
 
-    transform: translateX(-50%);
+        font-size: clamp(16px, 2.5vw, 24px);
 
-    padding: 14px 50px;
+        line-height: 1.5;
 
-    font-size: clamp(12px, 2vw, 18px);
+        margin-bottom: 30px;
+    }
 
-    font-weight: bold;
+    /* =========================================
+       BOTON PRINCIPAL
+    ========================================= */
 
-    letter-spacing: 2px;
+    .btn-inicio-grande{
 
-    color: white;
+        position: fixed;
 
-    background: linear-gradient(45deg, #ffcc00, #ff6600);
+        bottom: 30px;
 
-    border: none;
+        left: 50%;
 
-    border-radius: 50px;
+        transform: translateX(-50%);
 
-    cursor: pointer;
+        padding: 16px 50px;
 
-    box-shadow:
-        0 0 20px rgba(255, 200, 0, 0.8),
-        0 0 40px rgba(255, 120, 0, 0.6);
+        border: none;
 
-    animation: pulse 1.5s infinite;
+        border-radius: 50px;
 
-    transition: all 0.3s ease;
+        cursor: pointer;
 
-    z-index: 200;
-}
+        font-size: clamp(13px, 2vw, 18px);
 
-.btn-inicio-grande:hover {
+        font-weight: bold;
 
-    transform: translateX(-50%) scale(1.12);
-}
+        letter-spacing: 2px;
 
-/* =========================================
-   ANIMACIÓN
-========================================= */
+        color: white;
 
-@keyframes pulse {
-
-    0% {
+        background: linear-gradient(
+            45deg,
+            #ffcc00,
+            #ff6600
+        );
 
         box-shadow:
-            0 0 15px rgba(255,200,0,0.7),
-            0 0 30px rgba(255,100,0,0.5);
+            0 0 20px rgba(255, 200, 0, 0.8),
+            0 0 40px rgba(255, 120, 0, 0.6);
+
+        animation: pulse 1.5s infinite;
+
+        transition: all 0.3s ease;
+
+        z-index: 200;
     }
 
-    50% {
+    .btn-inicio-grande:hover{
 
-        box-shadow:
-            0 0 35px rgba(255,200,0,1),
-            0 0 60px rgba(255,100,0,0.9);
+        transform: translateX(-50%) scale(1.08);
     }
 
-    100% {
+    /* =========================================
+       ANIMACION
+    ========================================= */
 
-        box-shadow:
-            0 0 15px rgba(255,200,0,0.7),
-            0 0 30px rgba(255,100,0,0.5);
-    }
-}
+    @keyframes pulse{
 
-/* =========================================
-   ESTADOS
-========================================= */
+        0%{
 
-.portada-activa .pages-wrapper,
-.portada-activa .botones,
-.portada-activa .volver-container {
+            box-shadow:
+                0 0 15px rgba(255,200,0,0.7),
+                0 0 30px rgba(255,100,0,0.5);
+        }
 
-    display: none;
-}
+        50%{
 
-.historia-activa .portada {
+            box-shadow:
+                0 0 35px rgba(255,200,0,1),
+                0 0 60px rgba(255,100,0,0.9);
+        }
 
-    display: none;
-}
+        100%{
 
-/* =========================================
-   CONTENEDOR PRINCIPAL
-========================================= */
-
-.pages-wrapper {
-
-    width: 100%;
-
-    min-height: 85vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 20px;
-}
-
-/* =========================================
-   PAGINAS
-========================================= */
-
-.pagina {
-
-    position: absolute;
-
-    width: 90%;
-
-    max-width: 1400px;
-
-    opacity: 0;
-
-    transform: scale(0.95);
-
-    transition: all 0.6s ease;
-
-    pointer-events: none;
-}
-
-.pagina.active {
-
-    opacity: 1;
-
-    transform: scale(1);
-
-    pointer-events: auto;
-}
-
-/* =========================================
-   COMIC
-========================================= */
-
-.comic-container {
-
-    display: flex;
-
-    gap: 20px;
-
-    justify-content: center;
-
-    align-items: stretch;
-}
-
-/* =========================================
-   ESCENAS
-========================================= */
-
-.panel {
-
-    flex: 1;
-
-    min-width: 0;
-
-    height: 72vh;
-
-    border: 4px solid #111;
-
-    border-radius: 18px;
-
-    overflow: hidden;
-
-    background: #f8f1e7;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.4);
-
-    display: flex;
-
-    flex-direction: column;
-
-    transition: transform 0.3s ease;
-}
-
-.panel:hover {
-
-    transform: scale(1.02);
-}
-
-.panel img {
-
-    width: 100%;
-
-    height: 78%;
-
-    object-fit: contain;
-
-    background: #000;
-}
-
-/* =========================================
-   DIALOGOS
-========================================= */
-
-.dialogo {
-
-    height: 22%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 15px;
-
-    text-align: center;
-
-    font-size: clamp(14px, 1.8vw, 20px);
-
-    font-weight: bold;
-
-    color: #111;
-
-    background: #fffaf2;
-
-    line-height: 1.4;
-}
-
-/* =========================================
-   BOTONES
-========================================= */
-
-.botones,
-.volver-container {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 1cm;
-
-    margin-top: 10px;
-
-    margin-bottom: 10px;
-
-    flex-wrap: wrap;
-}
-
-/* =========================================
-   BOTONES GENERALES
-========================================= */
-
-.btn-cine {
-
-    background: linear-gradient(45deg, #1b1b1b, #444);
-
-    color: white;
-
-    border: 1px solid #888;
-
-    padding: 12px 24px;
-
-    border-radius: 30px;
-
-    cursor: pointer;
-
-    font-weight: bold;
-
-    font-size: clamp(12px, 2vw, 16px);
-
-    transition: all 0.3s ease;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.4);
-}
-
-.btn-cine:hover {
-
-    transform: scale(1.08);
-
-    background: linear-gradient(45deg, #333, #111);
-}
-
-/* =========================================
-   TABLETS
-========================================= */
-
-@media (max-width: 1024px) {
-
-    .comic-container {
-
-        gap: 15px;
+            box-shadow:
+                0 0 15px rgba(255,200,0,0.7),
+                0 0 30px rgba(255,100,0,0.5);
+        }
     }
 
-    .panel {
+    /* =========================================
+       CONTENEDOR GENERAL
+    ========================================= */
 
-        height: 65vh;
-    }
+    .pages-wrapper{
 
-    .dialogo {
+        width: 100%;
 
-        padding: 12px;
-    }
-}
+        min-height: 100vh;
 
-/* =========================================
-   CELULARES
-========================================= */
+        display: flex;
 
-@media (max-width: 768px) {
+        justify-content: center;
 
-    body {
+        align-items: center;
 
-        overflow-y: auto;
-    }
+        padding: 20px;
 
-    .pages-wrapper {
-
-        min-height: auto;
-
-        padding-top: 20px;
         padding-bottom: 120px;
     }
 
-    .pagina {
+    /* =========================================
+       PAGINAS
+    ========================================= */
 
-        position: relative;
+    .pagina{
 
         width: 100%;
+
+        max-width: 1400px;
     }
 
-    .comic-container {
+    /* =========================================
+       COMIC
+    ========================================= */
+
+    .comic-container{
+
+        display: flex;
+
+        gap: 20px;
+
+        justify-content: center;
+
+        align-items: stretch;
+    }
+
+    /* =========================================
+       PANEL
+    ========================================= */
+
+    .panel{
+
+        flex: 1;
+
+        min-width: 0;
+
+        height: 72vh;
+
+        border: 4px solid #111;
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        background: #f8f1e7;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.4);
+
+        display: flex;
 
         flex-direction: column;
 
-        gap: 20px;
+        transition: transform 0.3s ease;
     }
 
-    .panel {
+    .panel:hover{
+
+        transform: scale(1.02);
+    }
+
+    /* =========================================
+       IMAGEN PANEL
+    ========================================= */
+
+    .panel img{
 
         width: 100%;
 
-        height: auto;
-
-        min-height: 420px;
-    }
-
-    .panel img {
-
-        height: 320px;
+        height: 78%;
 
         object-fit: cover;
+
+        background: black;
     }
 
-    .dialogo {
+    /* =========================================
+       DIALOGO
+    ========================================= */
 
-        height: auto;
+    .dialogo{
 
-        min-height: 100px;
+        height: 22%;
 
-        font-size: 16px;
+        display: flex;
 
-        padding: 15px;
-    }
+        align-items: center;
 
-    .titulo-portada {
-
-        font-size: 38px;
-    }
-
-    .subtitulo {
-
-        font-size: 18px;
-    }
-
-    .btn-inicio-grande {
-
-        width: 85%;
-
-        max-width: 320px;
-
-        padding: 16px 20px;
-
-        font-size: 15px;
-    }
-
-    .botones,
-    .volver-container {
-
-        gap: 15px;
-
-        padding: 0 15px;
-    }
-
-    .btn-cine {
-
-        width: 100%;
-
-        max-width: 280px;
+        justify-content: center;
 
         text-align: center;
-    }
-}
-
-/* =========================================
-   CELULARES PEQUEÑOS
-========================================= */
-
-@media (max-width: 480px) {
-
-    .overlay {
 
         padding: 15px;
+
+        font-size: clamp(14px, 1.5vw, 20px);
+
+        font-weight: bold;
+
+        line-height: 1.4;
+
+        color: #111;
+
+        background: #fffaf2;
     }
 
-    .titulo-portada {
+    /* =========================================
+       BOTONES
+    ========================================= */
 
-        font-size: 30px;
+    .botones{
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin-top: 20px;
+
+        flex-wrap: wrap;
     }
 
-    .subtitulo {
+    /* =========================================
+       BOTONES GENERALES
+    ========================================= */
 
-        font-size: 16px;
+    .btn-cine{
+
+        padding: 14px 24px;
+
+        border: 1px solid #888;
+
+        border-radius: 30px;
+
+        cursor: pointer;
+
+        font-size: clamp(12px, 2vw, 16px);
+
+        font-weight: bold;
+
+        color: white;
+
+        background: linear-gradient(
+            45deg,
+            #1b1b1b,
+            #444
+        );
+
+        transition: all 0.3s ease;
+
+        box-shadow:
+            0 5px 15px rgba(0,0,0,0.4);
     }
 
-    .panel {
+    .btn-cine:hover{
 
-        min-height: 380px;
+        transform: scale(1.08);
+
+        background: linear-gradient(
+            45deg,
+            #333,
+            #111
+        );
     }
 
-    .panel img {
+    /* =========================================
+       TABLETS
+    ========================================= */
 
-        height: 260px;
+    @media (max-width: 1024px){
+
+        .panel{
+
+            height: 65vh;
+        }
     }
 
-    .dialogo {
+    /* =========================================
+       CELULARES
+    ========================================= */
 
-        font-size: 14px;
+    @media (max-width: 768px){
+
+        body{
+
+            overflow-y: auto;
+        }
+
+        .portada{
+
+            background-position: center center;
+
+            padding: 15px;
+        }
+
+        .overlay{
+
+            padding: 20px;
+        }
+
+        .comic-container{
+
+            flex-direction: column;
+        }
+
+        .panel{
+
+            width: 100%;
+
+            height: auto;
+
+            min-height: 420px;
+        }
+
+        .panel img{
+
+            height: 320px;
+        }
+
+        .dialogo{
+
+            height: auto;
+
+            min-height: 100px;
+
+            font-size: 16px;
+        }
+
+        .btn-inicio-grande{
+
+            width: 85%;
+
+            max-width: 320px;
+        }
+
+        .btn-cine{
+
+            width: 100%;
+
+            max-width: 280px;
+        }
     }
 
-    .btn-cine {
+    /* =========================================
+       CELULARES PEQUEÑOS
+    ========================================= */
 
-        padding: 12px 16px;
+    @media (max-width: 480px){
 
-        font-size: 14px;
+        .portada{
+
+            background-position: center top;
+        }
+
+        .titulo-portada{
+
+            font-size: 30px;
+        }
+
+        .subtitulo{
+
+            font-size: 16px;
+        }
+
+        .panel{
+
+            min-height: 380px;
+        }
+
+        .panel img{
+
+            height: 260px;
+        }
+
+        .dialogo{
+
+            font-size: 14px;
+        }
     }
-}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =========================================
+         PORTADA
+    ========================================= -->
+
+    <div class="portada">
+
+        <div class="overlay">
+
+            <h1 class="titulo-portada">
+                MI HISTORIA
+            </h1>
+
+            <p class="subtitulo">
+                Un comic interactivo adaptable a computadores y celulares
+            </p>
+
+        </div>
+
+        <button class="btn-inicio-grande">
+            INICIAR HISTORIA
+        </button>
+
+    </div>
+
+    <!-- =========================================
+         CONTENIDO
+    ========================================= -->
+
+    <div class="pages-wrapper">
+
+        <div class="pagina">
+
+            <div class="comic-container">
+
+                <!-- PANEL 1 -->
+
+                <div class="panel">
+
+                    <img src="img/escena1.jpg" alt="Escena 1">
+
+                    <div class="dialogo">
+                        Esta es la primera escena del comic.
+                    </div>
+
+                </div>
+
+                <!-- PANEL 2 -->
+
+                <div class="panel">
+
+                    <img src="img/escena2.jpg" alt="Escena 2">
+
+                    <div class="dialogo">
+                        Esta es la segunda escena del comic.
+                    </div>
+
+                </div>
+
+                <!-- PANEL 3 -->
+
+                <div class="panel">
+
+                    <img src="img/escena3.jpg" alt="Escena 3">
+
+                    <div class="dialogo">
+                        Esta es la tercera escena del comic.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BOTONES -->
+
+            <div class="botones">
+
+                <button class="btn-cine">
+                    ⬅ Anterior
+                </button>
+
+                <button class="btn-cine">
+                    Siguiente ➡
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
