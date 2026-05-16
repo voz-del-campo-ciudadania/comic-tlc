@@ -39,8 +39,6 @@ anterior.addEventListener("click", () => {
     mostrarPagina(paginaActual);
 });
 
-});
-
 reiniciarHistoria.addEventListener("click", () => {
 
     // OCULTAR CRÉDITOS
