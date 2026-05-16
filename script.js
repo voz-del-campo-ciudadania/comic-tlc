@@ -38,7 +38,19 @@ anterior.addEventListener("click", () => {
     if (paginaActual > 0) paginaActual--;
     mostrarPagina(paginaActual);
 });
+/* VOLVER INICIO */
+volverInicio.addEventListener("click", () => {
 
+    audio.pause();
+    audio.currentTime = 0;
+
+    document.body.classList.add("portada-activa");
+    document.body.classList.remove("historia-activa");
+
+    paginas.forEach(p => p.classList.remove("active"));
+
+    paginaActual = 0;
+});
 reiniciarHistoria.addEventListener("click", () => {
 
     // OCULTAR CRÉDITOS
