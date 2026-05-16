@@ -552,3 +552,206 @@ body {
         font-size: 13px;
     }
 }
+
+/* =========================================
+   PAGINA FINAL CREDITOS
+========================================= */
+
+.creditos-finales {
+
+    width: 100%;
+    height: 78vh;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background-image: url("img/final.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.5);
+}
+
+.creditos-overlay {
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.55);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 30px;
+}
+
+.creditos-overlay h1 {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 3px;
+
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.creditos-overlay h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 25px;
+}
+
+.lista-creditos p {
+
+    font-size: 24px;
+
+    margin: 10px 0;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.creditos-overlay h3 {
+
+    margin-top: 40px;
+
+    font-size: 22px;
+
+    color: #ffcc66;
+}
+
+/* =========================================
+   CRÉDITOS FINALES
+========================================= */
+
+.creditos-final {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background-image: url("img/portada.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: 500;
+}
+
+/* ACTIVAR */
+
+.creditos-activos .creditos-final {
+
+    display: flex;
+}
+
+/* OCULTAR HISTORIA */
+
+.creditos-activos .pages-wrapper,
+.creditos-activos .botones,
+.creditos-activos .volver-container {
+
+    display: none;
+}
+
+/* PANEL */
+
+.overlay-creditos {
+
+    width: 100%;
+    max-width: 850px;
+
+    background: rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(6px);
+
+    border-radius: 25px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    color: white;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* TITULO */
+
+.overlay-creditos h1 {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 3px;
+}
+
+/* TEXTO */
+
+.texto-creditos {
+
+    font-size: 22px;
+
+    margin-bottom: 30px;
+}
+
+/* LISTA */
+
+.lista-creditos {
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+
+    .overlay-creditos h1 {
+
+        font-size: 36px;
+    }
+
+    .texto-creditos {
+
+        font-size: 18px;
+    }
+
+    .lista-creditos {
+
+        font-size: 16px;
+    }
+}
